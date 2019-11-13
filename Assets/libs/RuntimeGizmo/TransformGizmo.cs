@@ -510,10 +510,10 @@ namespace RuntimeGizmos
 
 						if(nearAxis == Axis.Any)
 						{
-							//Vector3 rotation = transform.TransformDirection(new Vector3(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0));
-							//Quaternion.Euler(rotation).ToAngleAxis(out rotateAmount, out rotationAxis);
-							//rotateAmount *= allRotateSpeedMultiplier;
-       //                     Debug.Log(rotation.x);
+							 
+							 
+							 
+             
 						}
                         else
                         {
@@ -531,17 +531,17 @@ namespace RuntimeGizmos
                                 rotateAmount = (ExtVector3.MagnitudeInDirection(mousePosition - previousMousePosition, projected) * (rotateSpeedMultiplier * 100f)) / GetDistanceMultiplier();
 
                                  
-                                rotValue += rotateAmount;   //우리가 이  값이  90도가  되면  큐브를돌리며ㅑㄴ  대겟ㅈ;;?웅
-
-                                //하지만 아니란다  왜냐하면 우리는 조금만돌려도  90도식 돌아가면  조캣잔아?맞아 
-                                //그러니 까  대충...
+                                rotValue += rotateAmount;   
+                           
+                           
+                           
                             }
                         }
 
-                        //5도정도  돌아갈 마우스 거리를 돌리면  작동하게하자.웅..
+                      
                         if (rotValue >= 15 || rotValue <= -15)
                         {
-                            //rotValue가 0보다 크면 90도,, 0보다  작으면  -90도  ㅇㅋ??오..
+                            
                             rotValue = (rotValue > 0) ? 90 : -90;
 
                             for (int i = 0; i < targetRootsOrdered.Count; i++)
@@ -553,21 +553,21 @@ namespace RuntimeGizmos
                                 {
                                     target.Rotate(rotationAxis, rotValue, Space.World);
                                     //객체를 가져온다(shape block)
-                                    var sb = target.GetComponent<ShapeBlock>();
+                                    var sb = target.GetComponent<ShapeObject>();
                                     //null이 아니면
                                     if (sb != null)
                                     {
                                         //회전됨을 통지한다.
-                                        sb.OnChangeRotation(rotationAxis, rotValue);
+                                        //sb.OnChangeRotation(rotationAxis, rotValue);
                                     }
                                 }
                                 else if (pivot == TransformPivot.Center)
                                 {
                                     target.RotateAround(originalPivot, rotationAxis, rotValue);
-                                    var sb = target.GetComponent<ShapeBlock>();
+                                    var sb = target.GetComponent<ShapeObject>();
                                     if (sb != null)
                                     {
-                                        sb.OnChangeRotation(rotationAxis, rotValue);
+                                      //  sb.OnChangeRotation(rotationAxis, rotValue);
                                     }
                                 }
 
