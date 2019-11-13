@@ -61,6 +61,12 @@ public class ShapeObject : MonoBehaviour, IShapeObject
         PositionUpdate();
         ShapeManager.Instance.AddShapeObject(this);
     } 
+
+    public void RemoveBlock()
+    {
+        ShapeManager.Instance.RemoveShapeObject(this);
+        Destroy(this.gameObject);
+    }
     public bool IsBuildAble()
     {
         var existVectors = ShapeManager.Instance.GetExistVectorList(this); 
