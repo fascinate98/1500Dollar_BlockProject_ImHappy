@@ -147,9 +147,18 @@ namespace RuntimeGizmos
 		}
 
 		void Update()
-		{
-			HandleUndoRedo();
-
+        {
+            if (Input.GetKeyUp(KeyCode.Delete))
+            { 
+                foreach (var data in targetRootsOrdered)
+                {
+                    Debug.Log("remove");
+                    var comp = data.GetComponent<ShapeObject>();
+                    if (comp != null)
+                        comp?.RemoveBlock();
+                }
+            }
+            HandleUndoRedo(); 
 			SetSpaceAndType();
 
 			if(manuallyHandleGizmo)
@@ -164,6 +173,7 @@ namespace RuntimeGizmos
 			if(mainTargetRoot == null) return;
 			
 			TransformSelected();
+ 
 		}
 
 		void LateUpdate()

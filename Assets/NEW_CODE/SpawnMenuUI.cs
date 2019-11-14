@@ -34,7 +34,7 @@ public class SpawnMenuUI : MonoBehaviour
 
 
     
-    private void Update()//안대니? 웅.. 
+    private void Update()
     {
         var rectTransform = this.transform as RectTransform;
         if (isWindowOpen)
@@ -95,7 +95,6 @@ public class SpawnMenuUI : MonoBehaviour
             item.GetComponent<Button>().onClick.AddListener(() =>
             {
                 var data = GameObject.Instantiate(loadedObjects[value]);
-
             });
         }
     }

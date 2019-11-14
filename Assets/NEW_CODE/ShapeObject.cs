@@ -12,20 +12,16 @@ public interface IShapeObject
 }
 [System.Serializable]
 public class ShapeObject : MonoBehaviour, IShapeObject
-{
-
-
+{ 
     public enum ShapeStatus
     {
         NormalMode,
         EditMode
-    }
-
+    } 
     public ShapeStatus shapeStatus;
-
+    public bool isDebugMode = false;
     public List<Vector3> positions = new List<Vector3>();
-    public List<Vector3> Positions { get => positions; }
-
+    public List<Vector3> Positions { get => positions; } 
     private List<Transform> positionDatas
     {
         get
@@ -40,14 +36,11 @@ public class ShapeObject : MonoBehaviour, IShapeObject
 
             return datas;
         }
-    }
-
-
+    } 
     private void Awake()
     {
         Init();
-    }
-
+    } 
     private void PositionUpdate()
     {
         this.positions.Clear();
@@ -59,11 +52,12 @@ public class ShapeObject : MonoBehaviour, IShapeObject
     private void Init()
     {
         PositionUpdate();
-        ShapeManager.Instance.AddShapeObject(this);
+        ShapeManager.Instance.AddShapeObject(this); 
     } 
-
+    
     public void RemoveBlock()
     {
+        Debug.Log($"{this.name} => called  remove  block()");
         ShapeManager.Instance.RemoveShapeObject(this);
         Destroy(this.gameObject);
     }
@@ -75,8 +69,11 @@ public class ShapeObject : MonoBehaviour, IShapeObject
             var m = positionDatas[i];
             Vector3 data = positions[i];
             if ((existVectors.Contains(data)))
-            { 
-                m.GetComponent<MeshRenderer>().material.color = Color.red;
+            {
+                if (ShapeManager.Instance.isDebug)
+                {
+                    m.GetComponent<MeshRenderer>().material.color = Color.red;
+                }
             }
             else
             {
@@ -88,7 +85,6 @@ public class ShapeObject : MonoBehaviour, IShapeObject
     public void OnChangePosition(Vector3 moveAxis)
     { 
         PositionUpdate();
-        var buildable = IsBuildAble();
- 
+        var buildable = IsBuildAble(); 
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MenuWindowUI : MonoBehaviour
 {
-
     public bool isMenuOpen;
     public GameObject menu;
     public float speed = 0.15f;
