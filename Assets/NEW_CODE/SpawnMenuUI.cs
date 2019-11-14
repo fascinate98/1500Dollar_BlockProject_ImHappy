@@ -14,6 +14,7 @@ public class SpawnMenuUI : MonoBehaviour
     public GameObject window;
     public float speed = 0.15f;
     public bool isWindowOpen;
+  
     public void LoadPrefabs()
     {
         var _loadedObjects = Resources.LoadAll("Prefabs");
@@ -30,16 +31,11 @@ public class SpawnMenuUI : MonoBehaviour
         isWindowOpen = !isWindowOpen;
     }
 
+
+
     
     private void Update()//안대니? 웅.. 
     {
-
-        // UI는 transform.position을  쓰지않아 잘대던대..?  그래..?
-        //좌표개념자체가  트,ㄹ려서그래
-
-        //rectTransform안에 anchoredPosition이란걸로 바꿔보렴!
-        //그리고 UI는 x,y만있지?웅.,. .그래서 백터2써야해
-        //다시바꺼보아 
         var rectTransform = this.transform as RectTransform;
         if (isWindowOpen)
         {
@@ -52,6 +48,8 @@ public class SpawnMenuUI : MonoBehaviour
             rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, newvec, speed);
         }
     }
+
+
 #if UNITY_EDITOR
     [ContextMenu("Generate")]
     public void GeneratePrefabsPreviewTexture()
