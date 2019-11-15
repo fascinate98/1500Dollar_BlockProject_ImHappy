@@ -16,12 +16,17 @@ public class MenuWindowUI : MonoBehaviour
 
     public void menuButton()
     {
-        isMenuOpen = !isMenuOpen; //머가어려운게잇니...?
+        isMenuOpen = !isMenuOpen; 
     }
 
     public void exit()
     {
         Application.Quit();
+    }
+
+    public void destroy()
+    {
+        
     }
 
     // Update is called once per frame
