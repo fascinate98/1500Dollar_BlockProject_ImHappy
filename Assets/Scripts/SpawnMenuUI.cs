@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using RuntimeGizmos;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -95,6 +96,7 @@ public class SpawnMenuUI : MonoBehaviour
             item.GetComponent<Button>().onClick.AddListener(() =>
             {
                 var data = GameObject.Instantiate(loadedObjects[value]);
+                FindObjectOfType<TransformGizmo>().AddTarget(data.transform);
             });
         }
     }

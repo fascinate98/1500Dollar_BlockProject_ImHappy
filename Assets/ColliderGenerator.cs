@@ -1,9 +1,9 @@
-﻿using System.Collections;
+﻿#if UNITY_EDITOR
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-#if UNITY_EDITOR
 using UnityEngine;
-#endif
+ 
 
 [System.Serializable]
 public class Pattern
@@ -13,8 +13,7 @@ public class Pattern
 }
 public class ColliderGenerator : MonoBehaviour
 {
-    public Vector3 baseCenter;
-    public Vector3 patternScale;
+    public Vector3 baseCenter; 
     public int pattenrCount = 1;
     public List<Pattern> pattern = new List<Pattern>();
     public List<Pattern> validatePattern = new List<Pattern>();
@@ -94,37 +93,42 @@ public class ColliderGenerator : MonoBehaviour
     }
     public void Dettach()
     {
-        foreach (var data in this.GetComponents<BoxCollider>())
-        {
-            DestroyImmediate(data);
+        foreach (var data in this.GetComponentsInChildren<Transform>())
+        { 
+            if(data.transform == this.transform)
+            {
+                continue;
+            }
+            DestroyImmediate(data.gameObject);
         }
     }
     public void CreateCollider(bool validPattern = false)
     {
+        Dettach();
         if (validPattern)
-        {
-            for (int i = 0; i < pattenrCount; i++)
-            {
+        { 
                 foreach (var data in validatePattern)
                 {
-                    var bc = this.gameObject.AddComponent<BoxCollider>();
+                    var v = new GameObject();
+                    v.transform.SetParent(this.transform, false);
+                    var bc = v.AddComponent<BoxCollider>();
                     bc.center = data.addCenter + (baseCenter);
                     bc.size = data.scale * colliderScaleMultipier;
-                }
-            }
+                } 
         }
         else
         {
             foreach (var data in pattern)
             {
-                var bc = this.gameObject.AddComponent<BoxCollider>();
+                var v = new GameObject();
+                v.transform.SetParent(this.transform, false);
+                var bc = v.AddComponent<BoxCollider>();
                 bc.center = data.addCenter + baseCenter;
                 bc.size = data.scale * colliderScaleMultipier;
             }
         }
     }
-}
-#if UNITY_EDITOR
+} 
 [CustomEditor(typeof(ColliderGenerator))]
 public class ColliderGeneratorEditor : Editor
 {
@@ -174,5 +178,7 @@ public class ColliderGeneratorEditor : Editor
             script.Dettach();
         }
     }
-}
+} 
+
+
 #endif

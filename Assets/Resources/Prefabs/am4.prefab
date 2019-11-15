@@ -15372,7 +15372,6 @@ GameObject:
   - component: {fileID: 6661113723626824035}
   - component: {fileID: 8924122921755710032}
   - component: {fileID: 4554226129368332469}
-  - component: {fileID: -2098868299556541672}
   m_Layer: 0
   m_Name: am4
   m_TagString: Untagged
@@ -15409,7 +15408,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shapeStatus: 0
   isDebugMode: 0
-  positions: []
 --- !u!23 &8924122921755710032
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15456,20 +15454,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5192457043658020379}
-  m_Mesh: {fileID: 4300000, guid: df88183ba0fe81f4ca6cc071d1606a17, type: 3}
---- !u!64 &-2098868299556541672
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5192457043658020379}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: df88183ba0fe81f4ca6cc071d1606a17, type: 3}
 --- !u!1 &5192457045087130301
 GameObject:

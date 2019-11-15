@@ -16422,7 +16422,6 @@ GameObject:
   - component: {fileID: 8404854078662201507}
   - component: {fileID: 6944711408356426063}
   - component: {fileID: 7355217478302670202}
-  - component: {fileID: -3508202979874884697}
   m_Layer: 0
   m_Name: su8
   m_TagString: Untagged
@@ -16459,7 +16458,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shapeStatus: 0
   isDebugMode: 0
-  positions: []
 --- !u!23 &6944711408356426063
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16506,20 +16504,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4014649427971156868}
-  m_Mesh: {fileID: 4300000, guid: 156a869a7bf3cf4479a92b9514c9bd17, type: 3}
---- !u!64 &-3508202979874884697
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4014649427971156868}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 156a869a7bf3cf4479a92b9514c9bd17, type: 3}
 --- !u!1 &4014649427975755788
 GameObject:

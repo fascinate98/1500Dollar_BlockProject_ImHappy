@@ -21132,7 +21132,6 @@ GameObject:
   - component: {fileID: 7049613166113634005}
   - component: {fileID: 2414801032060667765}
   - component: {fileID: 6676902633725145807}
-  - component: {fileID: 3442511648887491168}
   m_Layer: 0
   m_Name: am5
   m_TagString: Untagged
@@ -21169,7 +21168,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shapeStatus: 0
   isDebugMode: 0
-  positions: []
 --- !u!23 &2414801032060667765
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21216,20 +21214,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4699123423637137179}
-  m_Mesh: {fileID: 4300000, guid: 5b155c17499fe0749bd791660baa78c5, type: 3}
---- !u!64 &3442511648887491168
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4699123423637137179}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 5b155c17499fe0749bd791660baa78c5, type: 3}
 --- !u!1 &4699123424165471471
 GameObject:

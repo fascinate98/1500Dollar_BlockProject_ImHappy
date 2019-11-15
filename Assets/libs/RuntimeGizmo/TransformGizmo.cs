@@ -459,16 +459,7 @@ namespace RuntimeGizmos
                             for (int i = 0; i < targetRootsOrdered.Count; i++)
                             {
                                 Transform target = targetRootsOrdered[i];
-                                target.Translate(GetMoveAxis(), Space.World);
-
-                                //현재 타겟에서 쉐이프 블록 컴퍼넌트를 가져온다.
-                                var sb = target.transform.GetComponent<ShapeObject>();
-                                //컴퍼넌트가 null이 아닌경우
-                                if (sb != null)
-                                {
-                                    //위치가 변경됨을 통지한다.
-                                    sb.OnChangePosition(GetMoveAxis());
-                                }
+                                target.Translate(GetMoveAxis(), Space.World); 
                             } 
                             SetPivotPointOffset(GetMoveAxis());
                             movedMousePos = Vector3.zero;
