@@ -15,19 +15,25 @@ public class ShapeManager : MonoBehaviour
             return instance;
         }
     }
-    private static ShapeManager instance;
-
+    private static ShapeManager instance; 
     public List<ShapeObject> dc = new List<ShapeObject>();
+
+
+    public void ClearAllShapeObject()
+    {
+        foreach(var data in dc)
+        {
+            Destroy(data.gameObject);
+        }
+        dc.Clear();
+    }
     public void AddShapeObject(ShapeObject obj)
     {
         dc.Add(obj);
-    }
-
-
+    } 
     public void RemoveShapeObject(ShapeObject obj)
     {
         dc.Remove(obj);
     }
-
-
+ 
 }

@@ -40,12 +40,12 @@ public class SpawnMenuUI : MonoBehaviour
         var rectTransform = this.transform as RectTransform;
         if (isWindowOpen)
         {
-            Vector2 newvec = new Vector2(-629.5f, rectTransform.anchoredPosition.y);
+            Vector2 newvec = new Vector2(336f, rectTransform.anchoredPosition.y);
             rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, newvec, speed);
         }
         else
         {
-            Vector2 newvec = new Vector2(-1306, rectTransform.anchoredPosition.y);
+            Vector2 newvec = new Vector2(-336f, rectTransform.anchoredPosition.y);
             rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, newvec, speed);
         }
     }
@@ -96,6 +96,7 @@ public class SpawnMenuUI : MonoBehaviour
             item.GetComponent<Button>().onClick.AddListener(() =>
             {
                 var data = GameObject.Instantiate(loadedObjects[value]);
+                data.name = loadedObjects[value].name;
                 FindObjectOfType<TransformGizmo>().AddTarget(data.transform);
             });
         }
