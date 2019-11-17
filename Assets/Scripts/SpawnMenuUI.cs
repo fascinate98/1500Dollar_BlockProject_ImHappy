@@ -8,7 +8,7 @@ using RuntimeGizmos;
 using UnityEditor;
 #endif
 public class SpawnMenuUI : MonoBehaviour
-{
+{ 
     public List<GameObject> loadedObjects = new List<GameObject>();
     public Transform Content;
     public GameObject SpawnUIItemPrefab;
@@ -72,6 +72,8 @@ public class SpawnMenuUI : MonoBehaviour
 
     }
 #endif
+
+ 
     private void Awake()
     {
         LoadPrefabs();
@@ -90,14 +92,17 @@ public class SpawnMenuUI : MonoBehaviour
             if (loadedPreviewSprite != null)
                 img.sprite = loadedPreviewSprite;
             else
-            {
+            { 
                 Debug.Log("PreviewPNG/" + loadedObjects[i].name + " is null");
             }
             item.GetComponent<Button>().onClick.AddListener(() =>
             {
-                var data = GameObject.Instantiate(loadedObjects[value]);
-                data.name = loadedObjects[value].name;
-                FindObjectOfType<TransformGizmo>().AddTarget(data.transform);
+                  var data = GameObject.Instantiate(loadedObjects[value]);
+                  data.name = loadedObjects[value].name; 
+                  data.transform.position = (ShapeManager.Instance.dc.Count  == 0 || ShapeManager.Instance.dc.Count == 1) ? Vector3.zero : ShapeManager.Instance.dc[ShapeManager.Instance.dc.Count - 2].transform.position;
+                   FindObjectOfType<TransformGizmo>().ClearTargets(data.transform);
+                   FindObjectOfType<TransformGizmo>().AddTarget(data.transform);
+
             });
         }
     }
