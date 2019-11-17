@@ -6,6 +6,7 @@ using System.Linq;
 public class ShapeManager : MonoBehaviour
 {
     public bool isDebug = false;
+    public System.Action<Transform> onRemoveBlockEvent = null;
     public static ShapeManager Instance
     {
         get
@@ -34,6 +35,8 @@ public class ShapeManager : MonoBehaviour
     public void RemoveShapeObject(ShapeObject obj)
     {
         dc.Remove(obj);
+        onRemoveBlockEvent?.Invoke(obj.transform);
     }
  
+    
 }

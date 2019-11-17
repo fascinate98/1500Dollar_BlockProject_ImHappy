@@ -189,7 +189,6 @@ GameObject:
   - component: {fileID: 2421991128024167761}
   - component: {fileID: 6941342187626629833}
   - component: {fileID: 6948418525738448716}
-  - component: {fileID: 2513857180797868289}
   m_Layer: 0
   m_Name: su3
   m_TagString: Untagged
@@ -228,6 +227,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0888bb8c88b24ea45915ae3ada065784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: dc
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[UnityEngine.Transform, UnityEngine.CoreModule],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.Transform,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   shapeStatus: 0
   isDebugMode: 0
 --- !u!23 &2421991128024167761
@@ -293,35 +321,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &2513857180797868289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7360487291268073160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c2de1c4d7622dc4f9a69246f4744e9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseCenter: {x: 0, y: 0, z: 11.5}
-  pattenrCount: 1
-  pattern:
-  - addCenter: {x: 0, y: 0.75, z: -11.5}
-    scale: {x: 3, y: 1.5, z: 24}
-  - addCenter: {x: 0, y: 0.75, z: -2.5}
-    scale: {x: 6, y: 1.5, z: 3}
-  - addCenter: {x: 0, y: 0.75, z: -8.5}
-    scale: {x: 6, y: 1.5, z: 3}
-  - addCenter: {x: 0, y: 0.75, z: -14.5}
-    scale: {x: 6, y: 1.5, z: 3}
-  - addCenter: {x: 0, y: 0.75, z: -20.5}
-    scale: {x: 6, y: 1.5, z: 3}
-  validatePattern: []
-  colliderScaleMultipier: 0.95
-  isPattenrGUIEnable: 1
-  isValidPattenrGUIEnable: 1
 --- !u!1 &8179069205641679490
 GameObject:
   m_ObjectHideFlags: 0
