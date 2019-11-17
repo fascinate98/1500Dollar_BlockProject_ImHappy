@@ -15,7 +15,8 @@ public class SpawnMenuUI : MonoBehaviour
     public GameObject window;
     public float speed = 0.15f;
     public bool isWindowOpen;
-  
+    
+ 
     public void LoadPrefabs()
     {
         var _loadedObjects = Resources.LoadAll("Prefabs");
@@ -50,6 +51,11 @@ public class SpawnMenuUI : MonoBehaviour
         }
     }
 
+    public void SetFilter(string value)
+    {
+        this.filter = value;
+        Load(); 
+    }
 
 #if UNITY_EDITOR
     [ContextMenu("Generate")]
@@ -73,10 +79,8 @@ public class SpawnMenuUI : MonoBehaviour
     }
 #endif
 
- 
-    private void Awake()
+    public void Load()
     {
-        LoadPrefabs();
         for (int i = 0; i < Content.childCount; i++)
         {
             var c = Content.transform.GetChild(i);
@@ -84,26 +88,44 @@ public class SpawnMenuUI : MonoBehaviour
         }
         for (int i = 0; i < loadedObjects.Count; i++)
         {
+            if (filter != "")
+            {
+                if (!loadedObjects[i].name.Contains(filter))
+                {
+                    continue;
+                } 
+            }
+
             var item = GameObject.Instantiate(SpawnUIItemPrefab);
             item.transform.SetParent(Content, false);
             int value = i;
             var img = item.GetComponent<Image>();
+            var text = item.GetComponentInChildren<Text>();
             var loadedPreviewSprite = Resources.Load<Sprite>("PreviewPNG/" + loadedObjects[i].name);
+
+            text.text = loadedObjects[i].name;
             if (loadedPreviewSprite != null)
                 img.sprite = loadedPreviewSprite;
             else
-            { 
+            {
                 Debug.Log("PreviewPNG/" + loadedObjects[i].name + " is null");
             }
             item.GetComponent<Button>().onClick.AddListener(() =>
             {
-                  var data = GameObject.Instantiate(loadedObjects[value]);
-                  data.name = loadedObjects[value].name; 
-                  data.transform.position = (ShapeManager.Instance.dc.Count  == 0 || ShapeManager.Instance.dc.Count == 1) ? Vector3.zero : ShapeManager.Instance.dc[ShapeManager.Instance.dc.Count - 2].transform.position;
-                   FindObjectOfType<TransformGizmo>().ClearTargets(data.transform);
-                   FindObjectOfType<TransformGizmo>().AddTarget(data.transform);
+                var data = GameObject.Instantiate(loadedObjects[value]);
+                data.name = loadedObjects[value].name;
+                data.transform.position = (ShapeManager.Instance.dc.Count == 0 || ShapeManager.Instance.dc.Count == 1) ? Vector3.zero : ShapeManager.Instance.dc[ShapeManager.Instance.dc.Count - 2].transform.position;
+                FindObjectOfType<TransformGizmo>().ClearTargets(data.transform);
+                FindObjectOfType<TransformGizmo>().AddTarget(data.transform);
 
             });
         }
+    }
+
+    public string filter = "";
+    private void Awake()
+    {
+        LoadPrefabs(); 
+        Load();
     }
 }

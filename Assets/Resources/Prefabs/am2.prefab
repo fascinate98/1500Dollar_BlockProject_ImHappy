@@ -776,6 +776,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0888bb8c88b24ea45915ae3ada065784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: dc
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[UnityEngine.Transform, UnityEngine.CoreModule],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.Transform,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   shapeStatus: 0
   isDebugMode: 0
 --- !u!23 &9057318172229499117
