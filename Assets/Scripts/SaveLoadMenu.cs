@@ -45,6 +45,8 @@ public class SaveLoadMenu : MonoBehaviour
         if (IsLoad)
             Load();
     }
+
+ 
     public void Save()
     {
         string values = null;
@@ -67,7 +69,7 @@ public class SaveLoadMenu : MonoBehaviour
                 {
                     values = values.Remove(values.Length - 1, 1);
                     string fileName = inputField.text;
-                    System.IO.File.WriteAllText(Application.persistentDataPath + "/" + fileName + ".txt", values);
+                    System.IO.File.WriteAllText(Application.persistentDataPath + "/saves/" + fileName + ".txt", values);
                     LoadFileList();
                 }
             }
@@ -76,7 +78,7 @@ public class SaveLoadMenu : MonoBehaviour
 
     public void Delete()
     {
-        var path = Application.persistentDataPath + "/" + (inputField.text);
+        var path = Application.persistentDataPath + "/saves/" + (inputField.text);
         if (System.IO.File.Exists(path) == true)
         {
             System.IO.File.Delete(path);
@@ -85,13 +87,13 @@ public class SaveLoadMenu : MonoBehaviour
     }
     public void Load()
     {
-        if (System.IO.File.Exists(Application.persistentDataPath + "/" + (inputField.text)) == false)
+        if (System.IO.File.Exists(Application.persistentDataPath + "/saves/" + (inputField.text)) == false)
         {
             return; 
         }
 
         ShapeManager.Instance.ClearAllShapeObject();
-        var loadedFile = System.IO.File.ReadAllText(Application.persistentDataPath + "/" + (inputField.text));
+        var loadedFile = System.IO.File.ReadAllText(Application.persistentDataPath + "/saves/" + (inputField.text));
         float x = 0, y = 0, z = 0;
         string name = null;
         var list = GetShellArray(loadedFile);
@@ -127,11 +129,16 @@ public class SaveLoadMenu : MonoBehaviour
     }
     private void Awake()
     {
+        var exist = System.IO.Directory.Exists(Application.persistentDataPath + "/saves");
+        if(!exist)
+        {
+            System.IO.Directory.CreateDirectory(Application.persistentDataPath + "/saves");
+        }
         LoadFileList();
     }
     public void LoadFileList()
     {
-        var di = new System.IO.DirectoryInfo(Application.persistentDataPath);
+        var di = new System.IO.DirectoryInfo(Application.persistentDataPath+"/saves");
 
 
         for (int i = 0; i < content.transform.childCount; i++)
